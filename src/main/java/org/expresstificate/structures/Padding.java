@@ -7,21 +7,20 @@ public class Padding implements Structure {
   @NotNull
   private String emitterName;
 
-  @NotNull
   private String emitterPosition;
 
   private String id;
 
-  public Padding(String emitterName, String emitterPosition, String id) {
+  public Padding(String emitterName, String emitterPosition, String id) throws Exception {
     this.emitterName = emitterName;
     this.emitterPosition = emitterPosition;
     this.id = id;
     verify(validate());
   }
-  public Padding(String emitterName, String emitterPosition) {
+  public Padding(String emitterName, String emitterPosition) throws Exception {
     this(emitterName, emitterPosition, null);
   }
-  public Padding() {
+  public Padding() throws Exception {
     this(null, null, null);
   }
 

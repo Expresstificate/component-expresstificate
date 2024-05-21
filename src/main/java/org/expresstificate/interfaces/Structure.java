@@ -14,9 +14,9 @@ public interface Structure {
     return log;
   }
 
-  default void verify(String log) {
+  default void verify(String log) throws Exception {
     if (!log.isEmpty()) {
-      System.out.println(log);
+      throw new Exception(log);
     }
   }
 }

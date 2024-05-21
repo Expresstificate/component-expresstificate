@@ -12,13 +12,13 @@ public class Template implements Structure {
   @NotNull
   private Padding padding;
 
-  public Template(Header header, Body body, Padding padding) {
+  public Template(Header header, Body body, Padding padding) throws Exception {
     this.header = header;
     this.body = body;
     this.padding = padding;
     verify(validate());
   }
-  public Template() {
+  public Template() throws Exception {
     this(null, null, null);
   }
 
@@ -44,5 +44,9 @@ public class Template implements Structure {
 
   public void setPadding(Padding padding) {
     this.padding = padding;
+  }
+
+  public void setTheme() {
+    // set theme by themes folder
   }
 }

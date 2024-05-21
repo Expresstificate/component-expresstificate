@@ -4,27 +4,28 @@ import org.expresstificate.interfaces.Structure;
 import org.expresstificate.interfaces.annotations.NotNull;
 
 public class Body implements Structure {
+  @NotNull
   private String introduction;
 
+  @NotNull
   private String text;
 
   @NotNull
   private String institution;
 
-  @NotNull
   private String receiverName;
 
-  public Body(String introduction, String text, String institution, String receiverName) {
+  public Body(String introduction, String text, String institution, String receiverName) throws Exception {
     this.introduction = introduction;
     this.institution = institution;
     this.text = text;
     this.receiverName = receiverName;
     verify(validate());
   }
-  public Body(String institution, String receiverName) {
+  public Body(String institution, String receiverName) throws Exception {
     this("is awarded to", "", institution, receiverName);
   }
-  public Body() {
+  public Body() throws Exception {
     this("is awarded to", "", null, null);
   }
 
