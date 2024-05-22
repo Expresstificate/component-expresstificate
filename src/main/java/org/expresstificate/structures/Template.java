@@ -18,9 +18,7 @@ public class Template implements Structure {
     this.padding = padding;
     verify(validate());
   }
-  public Template() throws Exception {
-    this(null, null, null);
-  }
+  public Template() {}
 
   public Header getHeader() {
     return header;

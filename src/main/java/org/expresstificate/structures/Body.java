@@ -22,6 +22,9 @@ public class Body implements Structure {
     this.receiverName = receiverName;
     verify(validate());
   }
+  public Body(String institution) throws Exception {
+    this("is awarded to", "", institution, null);
+  }
   public Body(String institution, String receiverName) throws Exception {
     this("is awarded to", "", institution, receiverName);
   }
@@ -29,43 +32,35 @@ public class Body implements Structure {
     this("is awarded to", "", null, null);
   }
 
-  /*
-   setters ->
-   */
+  public String getIntroduction() {
+    return introduction;
+  }
 
   public void setIntroduction(String introduction) {
     this.introduction = introduction;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public void setInstitution(String institution) {
-    this.institution = institution;
-  }
-
-  public void setReceiverName(String receiverName) {
-    this.receiverName = receiverName;
-  }
-
-  /*
-   getters ->
-   */
-
-  public String getIntroduction() {
-    return introduction;
   }
 
   public String getText() {
     return text;
   }
 
+  public void setText(String text) {
+    this.text = text;
+  }
+
   public String getInstitution() {
     return institution;
   }
 
+  public void setInstitution(String institution) {
+    this.institution = institution;
+  }
+
   public String getReceiverName() {
     return receiverName;
+  }
+
+  public void setReceiverName(String receiverName) {
+    this.receiverName = receiverName;
   }
 }

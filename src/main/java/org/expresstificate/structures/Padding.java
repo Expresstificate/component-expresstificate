@@ -24,32 +24,24 @@ public class Padding implements Structure {
     this(null, null, null);
   }
 
-  /*
-  getters ->
-   */
-
   public String getEmitterName() {
     return emitterName;
+  }
+
+  public void setEmitterName(String emitterName) {
+    this.emitterName = emitterName;
   }
 
   public String getEmitterPosition() {
     return emitterPosition;
   }
 
-  public String getId() {
-    return id;
-  }
-
-  /*
-  setters ->
-   */
-
-  public void setEmitterName(String emitterName) {
-    this.emitterName = emitterName;
-  }
-
   public void setEmitterPosition(String emitterPosition) {
     this.emitterPosition = emitterPosition;
+  }
+
+  public String getId() {
+    return id;
   }
 
   public void setId(String id) {

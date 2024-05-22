@@ -19,19 +19,19 @@ public class Header implements Structure {
     this("CERTIFICATE", "of achievement");
   }
 
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
 
+  public String getSubTitle() {
+    return subTitle;
+  }
+
   public void setSubTitle(String subTitle) {
     this.subTitle = subTitle;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public String getSubTitle() {
-    return this.subTitle;
   }
 }

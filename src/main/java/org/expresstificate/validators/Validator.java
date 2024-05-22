@@ -10,7 +10,10 @@ public class Validator {
     for (Field field : classObject.getDeclaredFields()) {
       field.setAccessible(true);
       if (field.isAnnotationPresent(NotNull.class) && field.get(obj) == null) {
-        log.append(field.getName()).append(" must not be null").append("\n");
+        log.append("values: ")
+                .append(field.getName())
+                .append(" must not be null")
+                .append("\n");
       }
     }
     return log.toString();
