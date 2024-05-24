@@ -13,6 +13,9 @@ public class GenerateByList extends Generate implements Generator {
 
   final ArrayList<String> idList;
 
+  /*
+    when the signal is true, the generator will create automatically a new id for each name in the nameList
+   */
   final boolean signal;
 
   public GenerateByList(Template template, ArrayList<String> nameList, ArrayList<String> idList, boolean signal) throws Exception {

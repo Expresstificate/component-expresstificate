@@ -44,7 +44,7 @@ public class Template implements Structure {
     this.padding = padding;
   }
 
-  public void setTheme() {
+  public void setTheme(int themeIndex) {
     // set theme by themes folder
   }
 }

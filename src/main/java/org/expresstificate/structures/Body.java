@@ -22,11 +22,11 @@ public class Body implements Structure {
     this.receiverName = receiverName;
     verify(validate());
   }
-  public Body(String institution) throws Exception {
-    this("is awarded to", "", institution, null);
-  }
   public Body(String institution, String receiverName) throws Exception {
     this("is awarded to", "", institution, receiverName);
+  }
+  public Body(String institution) throws Exception {
+    this("is awarded to", "", institution, null);
   }
   public Body() throws Exception {
     this("is awarded to", "", null, null);

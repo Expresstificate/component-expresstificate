@@ -2,7 +2,7 @@ package org.expresstificate.interfaces;
 
 import org.expresstificate.structures.Template;
 
-public interface Generator {
+public interface Generator extends Authenticator {
   default void create(Template template) {
     System.out.println(template.getBody().getReceiverName() + "\n" + template.getPadding().getId());
     System.out.println();
