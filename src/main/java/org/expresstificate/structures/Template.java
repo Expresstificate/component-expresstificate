@@ -16,8 +16,10 @@ public class Template implements Structure {
     this.header = header;
     this.body = body;
     this.padding = padding;
+
     verify(validate());
   }
+
   public Template() {}
 
   public Header getHeader() {
@@ -42,9 +44,5 @@ public class Template implements Structure {
 
   public void setPadding(Padding padding) {
     this.padding = padding;
-  }
-
-  public void setTheme(int themeIndex) {
-    // set theme by themes folder
   }
 }
