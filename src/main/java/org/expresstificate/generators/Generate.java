@@ -6,10 +6,14 @@ import org.expresstificate.structures.Certificate;
 import org.expresstificate.structures.Template;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Generate extends Thread implements Generator {
   @NotNull
   protected Certificate certificate;
+
+  private Map<String, byte[]> content = new HashMap<>();
 
   /*
     when the signal is true, the generator will create automatically a new id for each name in the nameList
@@ -29,6 +33,10 @@ public class Generate extends Thread implements Generator {
     this.certificate.setTemplate(newTemplate);
   }
 
+  public Map<String, byte[]> getContent() {
+    return content;
+  }
+
   @Override
   public void run() {
     try {
@@ -40,7 +48,12 @@ public class Generate extends Thread implements Generator {
       certificate.getTemplate().getPadding().setId(generateUUID());
     }
     try {
-      create(certificate);
+      String receiverName = certificate
+              .getTemplate()
+              .getBody()
+              .getReceiverName()
+              .replaceAll(" ", "");
+      content.put(receiverName, create(certificate));
       certificate.getTheme().closeDocument();
     } catch (IOException e) {
       throw new RuntimeException(e);

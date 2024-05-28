@@ -9,11 +9,9 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.expresstificate.structures.Template;
 
-import java.awt.*;
-import java.io.File;
+import java.awt.Color;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 
 public class Theme {
   private final PDDocument document;
@@ -27,11 +25,31 @@ public class Theme {
 
   private final Template template;
 
-  public Theme(Template template, int themeIndex) throws IOException {
-    Path path = verifyPath(themeIndex);
-    File file = path.toFile();
+//  public Theme(Template template, int themeIndex) throws IOException {
+//    Path path = verifyPath(themeIndex);
+//    File file = path.toFile();
+//
+//    this.document = Loader.loadPDF(file);
+//    this.page = document.getPage(0);
+//
+//    this.height = page.getMediaBox().getHeight();
+//    this.width = page.getMediaBox().getWidth();
+//
+//    this.template = template;
+//  }
+//
+//  private Path verifyPath(int value) throws IOException {
+//    if (value <= 0 || value > 7) {
+//      throw new IOException("null theme exception");
+//    }
+//    return Paths.get("src", "main", "java", "org", "expresstificate", "themes", "assets", "theme-" + value + ".pdf");
+//  }
 
-    this.document = Loader.loadPDF(file);
+  public Theme(Template template, int themeIndex) throws IOException {
+    String path = "/theme-" + themeIndex + ".pdf";
+    InputStream inputStream = verifyPath(path);
+
+    this.document = Loader.loadPDF(inputStream.readAllBytes());
     this.page = document.getPage(0);
 
     this.height = page.getMediaBox().getHeight();
@@ -40,11 +58,12 @@ public class Theme {
     this.template = template;
   }
 
-  private Path verifyPath(int value) throws IOException {
-    if (value <= 0 || value > 7) {
-      throw new IOException("null theme exception");
+  private InputStream verifyPath(String path) throws IOException {
+    InputStream inputStream = getClass().getResourceAsStream(path);
+    if (inputStream == null) {
+      throw new IOException("cannot find specified path: " + path);
     }
-    return Paths.get("src", "main", "java", "org", "expresstificate", "themes", "assets", "theme-" + value + ".pdf");
+    return inputStream;
   }
 
   public PDDocument getDocument() throws IOException {
