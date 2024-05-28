@@ -25,26 +25,6 @@ public class Theme {
 
   private final Template template;
 
-//  public Theme(Template template, int themeIndex) throws IOException {
-//    Path path = verifyPath(themeIndex);
-//    File file = path.toFile();
-//
-//    this.document = Loader.loadPDF(file);
-//    this.page = document.getPage(0);
-//
-//    this.height = page.getMediaBox().getHeight();
-//    this.width = page.getMediaBox().getWidth();
-//
-//    this.template = template;
-//  }
-//
-//  private Path verifyPath(int value) throws IOException {
-//    if (value <= 0 || value > 7) {
-//      throw new IOException("null theme exception");
-//    }
-//    return Paths.get("src", "main", "java", "org", "expresstificate", "themes", "assets", "theme-" + value + ".pdf");
-//  }
-
   public Theme(Template template, int themeIndex) throws IOException {
     String path = "/theme-" + themeIndex + ".pdf";
     InputStream inputStream = verifyPath(path);

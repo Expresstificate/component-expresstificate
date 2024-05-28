@@ -24,7 +24,7 @@ public class GenerateByList extends Generate implements Generator {
   final boolean signal;
 
   public GenerateByList(Certificate certificate, ArrayList<String> nameList, ArrayList<String> idList, boolean signal) throws Exception {
-    super(certificate);
+    super(certificate, signal);
     this.nameList = nameList;
     this.idList = idList;
     this.signal = signal;

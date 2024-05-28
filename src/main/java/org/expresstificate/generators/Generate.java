@@ -18,11 +18,9 @@ public class Generate extends Thread implements Generator {
   /*
     when the signal is true, the generator will create automatically a new id for each name in the nameList
    */
-  protected boolean signal;
 
-  public Generate(Certificate certificate) {
-    this.certificate = certificate;
-  }
+  @NotNull
+  protected boolean signal;
 
   public Generate(Certificate certificate, boolean signal) {
     this.certificate = certificate;
